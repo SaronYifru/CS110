@@ -17,7 +17,7 @@ public class pe332 {
 		x2 = scanner.nextDouble();
 		y2 = scanner.nextDouble();
 		condition = ((x1 - x0) * (y2 - y0)) - ((x2 - x0) * (y1 - y0));
-			
+		//	
 		if (condition < 0) {
 			System.out.println("p2 is on the left side of the line");
 		}
