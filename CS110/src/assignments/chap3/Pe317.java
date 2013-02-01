@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Pe317 {
-	
 	public static void main(String[] args) {
 		final int scissor = 0;
 		final int rock = 1;

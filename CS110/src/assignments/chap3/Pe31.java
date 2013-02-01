@@ -24,7 +24,7 @@ public class Pe31 {
 		else if (discriminant > 0) {
 			root1 = (-b + Math.sqrt(discriminant))/(2 * a);
 			root2 = (-b - Math.sqrt(discriminant))/(2 * a);
-			System.out.printf("The roots are %4.3f and %4.3f", root1, root2);
+			System.out.printf("The roots are %4.2f and %4.2f", root1, root2);
 		}
 		else {
 			System.out.println("The equation has no real roots");

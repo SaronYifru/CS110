@@ -3,7 +3,6 @@ package assignments.chap3;
 import java.util.Scanner;
 
 public class pe33 {
-
 	public static void main(String[] args) {
 		Double a, b, c, d, e, f;
 		Double x, y;

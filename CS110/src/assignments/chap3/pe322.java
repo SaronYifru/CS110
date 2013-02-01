@@ -3,7 +3,6 @@ package assignments.chap3;
 import java.util.Scanner;
 
 public class pe322 {
-
 	public static void main(String[] args) {
 		final int x1 = 0;
 		final int y1 = 0;

@@ -3,7 +3,6 @@ package assignments.chap3;
 import java.util.Scanner;
 
 public class pe321 {
-
 	public static void main(String[] args) {
 		int dayOfTheWeek;
 		int dayOfTheMonth;
