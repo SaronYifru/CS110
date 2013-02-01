@@ -12,7 +12,7 @@ public class Pe317 {
 		Random random = new Random();
 		int computer = random.nextInt(2) + 1;
 		int user;
-		System.out.println("Scissor (0), Rock(1), Paper (2): ");
+		System.out.print("Scissor (0), Rock(1), Paper (2): ");
 		Scanner scanner = new Scanner(System.in);
 		user = scanner.nextInt();
 		switch (computer) {
@@ -49,7 +49,7 @@ public class Pe317 {
 				
 			}
 			else if (user == rock) {
-				System.out.println("The computer is paper. You are rock too. You lost");
+				System.out.println("The computer is paper. You are rock. You lost");
 				
 			}
 			else if (user == paper) {
