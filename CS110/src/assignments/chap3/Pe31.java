@@ -4,28 +4,27 @@ import java.util.Scanner;
 
 public class Pe31 {
 
-	
 	public static void main(String[] args) {
 		Double a;
 		Double b;
 		Double c;
-		Double r1;
-		Double r2;
+		Double root1;
+		Double root2;
 		Double discriminant;
-		System.out.println(" Enter a, b, c: ");
+		System.out.print(" Enter a, b, c: ");
 		Scanner scanner = new Scanner(System.in);
 		a = scanner.nextDouble();
 		b = scanner.nextDouble();
 		c = scanner.nextDouble();
-		discriminant = Math.pow((Math.pow(b, 2) - 4 * a * c), 0.5);
+		discriminant = Math.pow(b, 2) - 4 * a * c;
 		if (discriminant == 0) { 
-			r1 = r2 = -b/(2*a);
-			System.out.println("The root is " + r1);
+			root1 = root2 = -b/(2 * a);
+			System.out.printf("The root is %4.3f" + root1);
 		}
 		else if (discriminant > 0) {
-			r1 = (-b + discriminant)/(2 * a);
-			r2 = (-b - discriminant)/(2 * a);
-			System.out.println("The roots are " + r1 + "and" + r2);
+			root1 = (-b + Math.sqrt(discriminant))/(2 * a);
+			root2 = (-b - Math.sqrt(discriminant))/(2 * a);
+			System.out.printf("The roots are %4.3f and %4.3f", root1, root2);
 		}
 		else {
 			System.out.println("The equation has no real roots");
