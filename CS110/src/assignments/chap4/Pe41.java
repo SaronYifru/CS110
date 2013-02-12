@@ -6,7 +6,7 @@ public class Pe41 {
 
 	public static void main(String[] args) {
 		int integer;
-		System.out.print("Enter an integer, the input ends if it is 0: ");
+		System.out.print("Enter integers, the input ends if it is 0: ");
 		Scanner scanner = new Scanner(System.in);
 		integer = scanner.nextInt();
 		int numberOfPositives = 0;
