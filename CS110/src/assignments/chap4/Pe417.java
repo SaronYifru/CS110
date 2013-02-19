@@ -10,7 +10,7 @@ public class Pe417 {
 		int numberOfLines = scanner.nextInt();
 		for (int row = 1 ; row <= numberOfLines ; row++){  
 
-			 for (int space = numberOfLines - row ; space > 0 ; space--) {  
+			for (int space = numberOfLines - row ; space > 0 ; space--) {  
 
 				 System.out.print("   ");  
 			 }  

@@ -5,11 +5,11 @@ public class Pe444 {
 	public static void main(String[] args) {
 		int numberOfHits = 0;
 		final long numberOfThrows = 1000000;
-		final int slope = -1;
 		for (int i = 0; i < numberOfThrows; i++) {
 			double x = (Math.random() * 2) - 1;
 			double y = (Math.random() * 2) - 1;
-			double condition = x + (-y * slope);
+			// set a condition so that the dart doesn't cross the diagonal line
+			double condition = x + y;
 			if ((x > 0 && y > 0 && condition <= 1) || (x < 0)) {
 				numberOfHits ++;
 			}

@@ -18,14 +18,15 @@ public class Pe438 {
 			
 			decimalNumber = decimalNumber/16;
 			
-			hexadecimalValue = hexadecimalValue  + hexadecimalValues[remainder];
+			hexadecimalValue = hexadecimalValues[remainder] + hexadecimalValue;
 			 
 			}
-		// reverse the order of the concatenated string (hexadecimalValue)
-		for (int i = hexadecimalValue.length() - 1; i >= 0; i--) {
-			System.out.print(hexadecimalValue.charAt(i));
-		}
 		
+		
+	    System.out.print("The hexadecimal value for the decimal number you entered is " 
+	    				+ hexadecimalValue);
+	    
+				
 			
 			
 			

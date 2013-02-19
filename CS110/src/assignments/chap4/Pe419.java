@@ -4,11 +4,11 @@ public class Pe419 {
 
 
 	public static void main(String[] args) {
-		for (int i = 0; i <= 7; i++) {
-			for (int space = 7 - i ; space > 0 ; space--) {  
+		for (int row = 0; row <= 7; row++) {
+			for (int space = 7 - row ; space > 0 ; space--) {  
 				System.out.print("     ");  
 			 }  
-			for (int j = 0; j <= i; j++) {
+			for (int j = 0; j <= row; j++) {
 				int column = (int)Math.pow(2, j);
 				if (column >= 100) {
 					System.out.print("  " + column);
@@ -21,7 +21,7 @@ public class Pe419 {
 					System.out.print("    " + column);
 				}
 			}
-			for (int j = i - 1; j >= 0; j--) {
+			for (int j = row - 1; j >= 0; j--) {
 				
 				int column = (int)Math.pow(2, j);
 				if (column >= 100) {
