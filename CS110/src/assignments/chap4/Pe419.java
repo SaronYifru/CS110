@@ -4,36 +4,22 @@ public class Pe419 {
 
 
 	public static void main(String[] args) {
-		for (int row = 0; row <= 7; row++) {
-			for (int space = 7 - row ; space > 0 ; space--) {  
-				System.out.print("     ");  
+		final int LARGESTPOWER = 7;
+		String maxstringColumn = String.valueOf((int)Math.pow(2, LARGESTPOWER));
+		int FIELDSIZE = maxstringColumn.length()  + 1;
+		for (int row = 0; row <= LARGESTPOWER; row++) {
+			for (int space = LARGESTPOWER - row ; space > 0 ; space--) {  
+				System.out.printf("%" + FIELDSIZE + "s", " ");  
 			 }  
 			for (int j = 0; j <= row; j++) {
 				int column = (int)Math.pow(2, j);
-				if (column >= 100) {
-					System.out.print("  " + column);
-				}
-				else if (column >= 10) {
-					System.out.print("   " + column);
-				}
-				
-				else {
-					System.out.print("    " + column);
-				}
+				System.out.format("%" + FIELDSIZE + "d", column);
 			}
 			for (int j = row - 1; j >= 0; j--) {
 				
 				int column = (int)Math.pow(2, j);
-				if (column >= 100) {
-					System.out.print("  " + column);
-				}
-				else if (column >= 10) {
-					System.out.print("   " + column);
-				}
+				System.out.format("%" + FIELDSIZE + "d", column);
 				
-				else {
-					System.out.print("    " + column);
-				}
 				
 			}
 			System.out.println();
