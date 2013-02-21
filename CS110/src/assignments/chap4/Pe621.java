@@ -8,13 +8,13 @@ public class Pe621 {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter the number of balls: ");
 		int numberOfballs = scanner.nextInt();
-		 System.out.print("Enter the number of slots: ");
-		 int numberOfSlots = scanner.nextInt();
-		 int[] slots = new int[numberOfSlots];
-		 char[] path = new char[numberOfSlots];
+		System.out.print("Enter the number of slots: ");
+		int numberOfSlots = scanner.nextInt();
+		int[] slots = new int[numberOfSlots];
+		char[] path = new char[numberOfSlots];
 		 /* decide and keep track of the path way taken by each ball. Also count the number of
 		 'Right' decisions for each ball, which ultimately decides which slot it goes in*/
-		 for (int i = 0; i < numberOfballs; i++) {
+		for (int i = 0; i < numberOfballs; i++) {
 			 int numberOfRightPaths = 0;
 			 for (int j = 0; j < numberOfSlots; j++) {
 				if (Math.random() < 0.5) {
