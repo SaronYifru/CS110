@@ -10,21 +10,24 @@ public class Pe531 {
 		if (isValid(cardNumber)) {
 			System.out.println(cardNumber + " is valid");
 		} else {
-			System.out.println(cardNumber + " is not valid");
+			System.out.println(cardNumber + " is invalid");
 		}
 
 	}
 
 	public static boolean isValid(long number) {
-		boolean validity = true;
-		if (getSize(number) >= 13 && getSize(number) <= 16) {
-			int prefix = (int) getPrefix(number, 1);
-			if (prefixMatched(number, prefix)) {
-				int total = sumOfOddPlace(number)
-						+ sumOfDoubleEvenPlace(number);
+		boolean validity = false;
+		int total;
+		int singleDigitPrefix = (int) getPrefix(number, 1);
+		int doubleDigitPrefix = (int) getPrefix(number, 2);
+		if (prefixMatched(number, singleDigitPrefix)
+				|| prefixMatched(number, doubleDigitPrefix)) {
+			if (getSize(number) >= 13 && getSize(number) <= 16) {
+				total = sumOfOddPlace(number) + sumOfDoubleEvenPlace(number);
 				if (total % 10 == 0) {
 					validity = true;
 				}
+
 			}
 		}
 
@@ -37,7 +40,7 @@ public class Pe531 {
 		while (number > 0) {
 			oddDigit = (int) (number % 10);
 			sum = sum + oddDigit;
-			number = (number / 10) / 10;
+			number = (number / 100);
 		}
 
 		return sum;
@@ -51,7 +54,7 @@ public class Pe531 {
 		while (number > 0) {
 			evenDigit = (int) ((number / 10) % 10);
 			sum = sum + getDigit(evenDigit * 2);
-			number = (number / 10) / 10;
+			number = (number / 100);
 
 		}
 		return sum;
@@ -107,7 +110,7 @@ public class Pe531 {
 
 	public static int getSize(long number) {
 		int size = 0;
-		while (number < 0) {
+		while (number > 0) {
 			number = number / 10;
 			size++;
 		}
