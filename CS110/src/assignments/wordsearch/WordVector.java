@@ -13,10 +13,7 @@ public class WordVector {
 		this.direction = direction;
 		this.length = length;
 	}
-	public int getCol(){
-		return column;
-		
-	}
+	
 	public Direction getDirection(){
 		return direction;
 	}
@@ -29,7 +26,7 @@ public class WordVector {
 	public int getColumn() {
 		return column;
 	}
-	public String tOString() {
+	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		sb.append("found at [" + String.valueOf(row));
 		sb.append(", " + String.valueOf(column + "]"));
