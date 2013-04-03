@@ -6,14 +6,15 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class WordSearch {
-	StringBuffer location = new StringBuffer();
 	private String[] puzzle;
+	private char[][] puzzle2DArray;// puzzle view thats going to be altered by
+									// asterisks
 	private String clues = "";
+	public int numberOfTrials;
 	private int m;
 	private int n;
-
+	private char[][] puzzleWithAsterics;
 	private String name;
-
 	Scanner scanner;
 
 	public WordSearch(String filename, String name) {
@@ -30,9 +31,17 @@ public class WordSearch {
 		for (int i = 0; i < n; i++) {
 			puzzle[i] = scanner.next();
 		}
-		while (scanner.hasNext()) {
-			clues = clues + scanner.next() + "  ";
+		puzzle2DArray = new char[n][m];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				puzzle2DArray[i][j] = puzzle[i].charAt(j);
+			}
 		}
+		while (scanner.hasNext()) {
+			clues = clues + scanner.next() + " ";
+		}
+		numberOfTrials = clues.split(" ").length;
+
 	}
 
 	public void printClue() {
@@ -74,13 +83,11 @@ public class WordSearch {
 	public void printWelcomeMessage() {
 		System.out.println("Welcome to " + name + "'s puzzle!!!");
 	}
-    
-
 
 	// return wordVector containing full description of the location of the word
 	// to find
-	public WordVector lookUpAndFindLocation(String wordToFind) {
-		//first check if word is in clue
+	public WordVector lookUp(String wordToFind) {
+		// first check if word is in clue
 		if (clues.contains(wordToFind)) {
 			// check row and reverse row
 			int row = 0;
@@ -91,16 +98,16 @@ public class WordSearch {
 				column = rowString.indexOf(wordToFind);
 				row = i;
 				if (column != -1) {
-					WordVector wd = new WordVector(row, column,
+					WordVector location = new WordVector(row, column,
 							Direction.EASTERLY, wordToFind.length());
-					return wd;
-				}	
+					return location;
+				}
 				row = i;
 				column = m - 1 - rowString.reverse().indexOf(wordToFind);
-				if (rowString.indexOf(wordToFind) != -1){
-					WordVector wd = new WordVector(row, column,
+				if (rowString.indexOf(wordToFind) != -1) {
+					WordVector location = new WordVector(row, column,
 							Direction.WESTERLY, wordToFind.length());
-					return wd;
+					return location;
 				}
 			}
 
@@ -115,49 +122,45 @@ public class WordSearch {
 				column = i;
 				row = columnString.indexOf(wordToFind);
 				if (row != -1) {
-					WordVector wd = new WordVector(row, column,
+					WordVector location = new WordVector(row, column,
 							Direction.SOUTHERLY, wordToFind.length());
-					return wd;
+					return location;
 				}
-                
+
 				column = i;
 				row = n - columnString.reverse().indexOf(wordToFind) - 1;
 				if (columnString.indexOf(wordToFind) != -1) {
-					WordVector wd = new WordVector(row, column, Direction.NORTHERLY, wordToFind.length());
-                    return wd;
+					WordVector location = new WordVector(row, column,
+							Direction.NORTHERLY, wordToFind.length());
+					return location;
 				}
-				
-			}
-		}
-		System.out.println("The word you entered is not in the puzzle. Please try again!");
-		return null;
-		
-	}
-	
-    
-	public char[][] placeAsterics(String wordToFind) {
-		char[][] puzzleArray = new char[n][m];
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				puzzleArray[i][j] = puzzle[i].charAt(j);
 
 			}
 		}
-		WordVector wd = lookUpAndFindLocation(wordToFind);
-		int row = wd.getRow();
-		int column = wd.getColumn();
-		Direction direction = wd.getDirection();
+
+		return null;
+
+	}
+
+	public char[][] placeAsterics(String wordToFind) {
+
+		WordVector location = lookUp(wordToFind);
+
+		int row = location.getRow();
+		int column = location.getColumn();
+		Direction direction = location.getDirection();
 		int horizontal = direction.getHorizontalStep();
 		int vertical = direction.getVerticalStep();
-		int length = wd.getLength();
+		int length = location.getLength();
 		for (int i = 0; i < length; row += vertical, column += horizontal, i++) {
-			puzzleArray[row][column] = '*';
+			puzzle2DArray[row][column] = '*';
 		}
-		return puzzleArray;
+
+		return puzzle2DArray;
 	}
 
 	public void printView(String wordToFind) {
-		char[][] puzzleWithAsterics = placeAsterics(wordToFind);
+		puzzleWithAsterics = placeAsterics(wordToFind);
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				System.out.print(puzzleWithAsterics[i][j]);
