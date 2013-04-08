@@ -9,6 +9,10 @@ public class MyString1 {
 		size = chars.length;
 	}
 
+	public String toString() {
+		return new String(chars);
+	}
+
 	public char charAt(int index) {
 		return chars[index];
 	}
