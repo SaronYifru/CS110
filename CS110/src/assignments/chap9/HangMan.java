@@ -71,6 +71,6 @@ public class HangMan {
 
 	public void endOfGameDetails() {
 		System.out.println("The word is " + randomWord + " . You missed "
-				+ numberOfMissed + " time");
+				+ numberOfMissed + ((numberOfMissed == 1) ? " time" : " times"));
 	}
 }
