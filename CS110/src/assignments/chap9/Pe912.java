@@ -7,7 +7,7 @@ public class Pe912 {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter two strings: ");
+		System.out.print("Enter two strings: ");
 		String s1 = scanner.next();
 		String s2 = scanner.next();
 		if (isAnagram(s1, s2)) {
@@ -22,8 +22,8 @@ public class Pe912 {
 	public static boolean isAnagram(String s1, String s2) {
 		// first change each string in to an array of characters and then sort
 		// the characters
-		char[] c1 = s1.toCharArray();
-		char[] c2 = s2.toCharArray();
+		char[] c1 = s1.toLowerCase().toCharArray();
+		char[] c2 = s2.toLowerCase().toCharArray();
 		Arrays.sort(c1);
 		Arrays.sort(c2);
 		// convert the array of characters back to strings and check whether the
