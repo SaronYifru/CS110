@@ -11,39 +11,40 @@ public class Pe108 {
 				{ 16700, 67900, 137050, 20885, 372950 },
 				{ 8350, 33950, 68525, 104425, 186475 },
 				{ 11950, 45500, 117450, 190200, 372950 } };
-		double[] ratesFor2009 = { 0.10, 0.15, 0.25, 0.28, 0.33, 0.35 }; 
-		double[]ratesFor2001 = {0.15, 0.275, 0.305, 0.355, 0.391};
-	
-		Tax taxFor2001 = new Tax(1, bracketsFor2001, ratesFor2001, 50000);
-		Tax taxFor2009 = new Tax(1, bracketsFor2009, ratesFor2009, 50000);
+		double[] ratesFor2009 = { 0.10, 0.15, 0.25, 0.28, 0.33, 0.35 };
+		double[] ratesFor2001 = { 0.15, 0.275, 0.305, 0.355, 0.391 };
+
+		Tax taxFor2001 = new Tax(Tax.SINGLE_FILER, bracketsFor2001,
+				ratesFor2001, 50000);
+		Tax taxFor2009 = new Tax(Tax.SINGLE_FILER, bracketsFor2009,
+				ratesFor2009, 50000);
 		printTaxTable(taxFor2001, 2001, 50000, 60000, 1000);
 		System.out.println();
 		printTaxTable(taxFor2009, 2009, 50000, 60000, 1000);
-		
-		
-		
-	}	
-	public static void printTaxTable(Tax tax, int year, int startOfTaxableIncome, int endOfTaxableIncome, int interval) {
-		
+
+	}
+
+	public static void printTaxTable(Tax tax, int year,
+			int startOfTaxableIncome, int endOfTaxableIncome, int interval) {
+
 		tax.setYear(year);
 		tax.printHeader();
-		for (int taxableIncome = startOfTaxableIncome; taxableIncome <= endOfTaxableIncome; taxableIncome += interval ) {
-			
+		for (int taxableIncome = startOfTaxableIncome; taxableIncome <= endOfTaxableIncome; taxableIncome += interval) {
+
 			tax.setTaxableIncome(taxableIncome);
-			tax.setFilingStatus(0);
+			tax.setFilingStatus(Tax.SINGLE_FILER);
 			int taxForStatus0 = (int) tax.getTax();
-			tax.setFilingStatus(1);
+			tax.setFilingStatus(Tax.MARRIED_JOINTLY_OR_QUALIFYING_WIDOW);
 			int taxForStatus1 = (int) tax.getTax();
-			tax.setFilingStatus(2);
+			tax.setFilingStatus(Tax.MARRIED_SEPARATELY);
 			int taxForStatus2 = (int) tax.getTax();
-			tax.setFilingStatus(3);
+			tax.setFilingStatus(Tax.HEAD_OF_HOUSEHOLD);
 			int taxForStatus3 = (int) tax.getTax();
-			System.out.printf("%5d%15d%28d%25d%25d" , taxableIncome, taxForStatus0, taxForStatus1, taxForStatus2, taxForStatus3);
+			System.out.printf("%5d%15d%28d%25d%25d", taxableIncome,
+					taxForStatus0, taxForStatus1, taxForStatus2, taxForStatus3);
 			System.out.println();
-			
-			
 
 		}
 	}
-		
-	}
+
+}
