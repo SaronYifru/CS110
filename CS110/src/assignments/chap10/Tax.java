@@ -78,12 +78,7 @@ public class Tax {
 				break;
 			}
 		}
-		// calculate tax for the last bracket
-		if (i == brackets[0].length
-				&& taxableIncome > brackets[filingStatus][i - 1]) {
-			tax = tax + (taxableIncome - brackets[filingStatus][i - 1])
-					* rates[i];
-		}
+
 		return tax;
 	}
 
