@@ -12,14 +12,13 @@ public class Pe111 {
 		double side3 = scanner.nextDouble();
 		System.out.print("Enter a color: ");
 		String color = scanner.next();
-		System.out.print("Enter true or false indicating whether the triangle is filled: ");
+		System.out
+				.print("Enter true or false indicating whether the triangle is filled: ");
 		boolean filled = scanner.nextBoolean();
 		Triangle triangle = new Triangle(side1, side2, side3);
 		triangle.setColor(color);
 		triangle.setFilled(filled);
 		System.out.println(triangle.toString());
-		
-		
 
 	}
 

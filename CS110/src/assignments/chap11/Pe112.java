@@ -18,7 +18,7 @@ public class Pe112 {
 		System.out.println(employee1.toString());
 		System.out.println(faculty1.toString());
 		System.out.println(staff1.toString());
-    
+
 	}
 
 }
