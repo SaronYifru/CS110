@@ -1,11 +1,11 @@
 package assignments.chap11;
 
 public class Student extends Person {
-	private GradeLevel gradeLevel;
-	public enum GradeLevel {
+	private gradeLevel gradeLevel;
+	public enum gradeLevel {
 		SOPHOMORE, FRESHMAN, JUNIOR, SENIOR;
 	}
-public void setStatus(GradeLevel gradeLevel) {
+public void setStatus(gradeLevel gradeLevel) {
 		this.gradeLevel = gradeLevel;
 	}
 	
