@@ -1,9 +1,13 @@
 package assignments.wordsearch;
 
+import java.awt.GridLayout;
 import java.io.File;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class WordSearch {
 	private String[] puzzle;
@@ -50,11 +54,23 @@ public class WordSearch {
 
 	}
 
-	public void printPuzzle() {
+	public void puzzleView() {
+		JFrame puzzleDisplay = new JFrame();
+		puzzleDisplay.setSize(800, 800);
+		puzzleDisplay.setLayout(new GridLayout(n, m));
+		puzzleDisplay.setTitle("Saron's Puzzle");
+		
+		
 		for (int i = 0; i < n; i++) {
-			System.out.println(puzzle[i]);
+			for (int j = 0; j < m; j++) {
+				JLabel character = new JLabel(String.valueOf(puzzle2DArray[i][j]));
+				puzzleDisplay.add(character, JLabel.CENTER);
+		    }
 		}
+		puzzleDisplay.pack();
+		puzzleDisplay.setVisible(true);
 	}
+	
 
 	public String getWordToFind(String wordToFind) {
 		return wordToFind;
@@ -160,12 +176,19 @@ public class WordSearch {
 	}
 
 	public void printView(String wordToFind) {
+		JFrame puzzleDisplay = new JFrame();
+		puzzleDisplay.setLayout(new GridLayout(n, m));
 		puzzleWithAsterics = placeAsterics(wordToFind);
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				System.out.print(puzzleWithAsterics[i][j]);
+				JLabel label = new JLabel(String.valueOf(puzzleWithAsterics[i][j]));
+				puzzleDisplay.add(label, JLabel.CENTER);
 			}
-			System.out.println();
+			
 		}
+		puzzleDisplay.pack();
+		puzzleDisplay.setTitle("Saron's Puzzle");
+		puzzleDisplay.setVisible(true);
 	}
+	
 }

@@ -9,7 +9,7 @@ public class Test {
 		int numberOfTrials = 0;
 		WordSearch puzzle1 = new WordSearch("maze.dat", name);
 		puzzle1.printWelcomeMessage();
-		puzzle1.printPuzzle();
+		puzzle1.puzzleView();
 		while (numberOfTrials < puzzle1.numberOfTrials) {
 			puzzle1.printClue();
 			System.out.print("Enter the word you want to search for: ");
