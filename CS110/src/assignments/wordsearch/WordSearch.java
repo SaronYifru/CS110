@@ -54,23 +54,21 @@ public class WordSearch {
 
 	}
 
-	public void puzzleView() {
+	
+	public void initialPuzzleDisplay() {
 		JFrame puzzleDisplay = new JFrame();
-		puzzleDisplay.setSize(800, 800);
+		puzzleDisplay.setSize(200, 200);
 		puzzleDisplay.setLayout(new GridLayout(n, m));
 		puzzleDisplay.setTitle("Saron's Puzzle");
-		
-		
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				JLabel character = new JLabel(String.valueOf(puzzle2DArray[i][j]));
 				puzzleDisplay.add(character, JLabel.CENTER);
 		    }
 		}
-		puzzleDisplay.pack();
+		
 		puzzleDisplay.setVisible(true);
 	}
-	
 
 	public String getWordToFind(String wordToFind) {
 		return wordToFind;
@@ -175,20 +173,15 @@ public class WordSearch {
 		return puzzle2DArray;
 	}
 
-	public void printView(String wordToFind) {
-		JFrame puzzleDisplay = new JFrame();
-		puzzleDisplay.setLayout(new GridLayout(n, m));
+	public void puzzleView(String wordToFind) {
 		puzzleWithAsterics = placeAsterics(wordToFind);
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				JLabel label = new JLabel(String.valueOf(puzzleWithAsterics[i][j]));
-				puzzleDisplay.add(label, JLabel.CENTER);
+				System.out.print(puzzleWithAsterics[i][j] + " ");
 			}
-			
+			System.out.println();
 		}
-		puzzleDisplay.pack();
-		puzzleDisplay.setTitle("Saron's Puzzle");
-		puzzleDisplay.setVisible(true);
+		
 	}
 	
 }
