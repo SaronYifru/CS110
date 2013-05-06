@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 public class EventExample extends JFrame{
 	public EventExample() {
 		
-		JPanel p = new JPanel();
+		JPanel panel = new JPanel();
 		JTextField tf = new JTextField(12);
 		tf.addActionListener(new TFHandler());
 		JButton b = new JButton("Press Me");
@@ -27,12 +27,12 @@ public class EventExample extends JFrame{
 		b.addActionListener(handler);
 		b3.addMouseListener(new MouseTracker());
 		tf1.addKeyListener(new KeyTracker());
-		p.add(b3);
-		p.add(b2);
-		p.add(tf);
-		p.add(b);
-		p.add(tf1);
-		add(p);
+		panel.add(b3);
+		panel.add(b2);
+		panel.add(tf);
+		panel.add(b);
+		panel.add(tf1);
+		add(panel);
 		pack();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
